@@ -32,3 +32,10 @@ language and often by voice.
   analysis and matching; Vercel for hosting.
 - Other companies' unreleased work will live here in stage 3. Every table that holds
   customer data carries `company_id`, and every query filters by it.
+
+## Database
+
+- Changes go in a new numbered file in `db/migrations/`. Never edit a migration that
+  has already been run. Rich runs each one by pasting it into the Supabase SQL Editor.
+- Every new table gets row level security and an "own company only" policy, as in
+  `001_init.sql`. Test migrations locally (PGlite works) before asking Rich to run one.

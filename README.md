@@ -5,7 +5,7 @@ one library, analyzes each spot with an AI model, proposes a reel for a brief wi
 reason for every pick, and learns from what happens after the reel is sent.
 
 Status: project skeleton. No features are built yet. See `docs/PLAN.md` for the
-product brief and build order, and `db/schema.sql` for the planned data model.
+product brief and build order, and `db/migrations/` for the database tables.
 
 ## Running it
 
@@ -20,5 +20,5 @@ Then open http://localhost:3000.
 
 - `src/app/` the web app (Next.js, TypeScript, Tailwind)
 - `docs/PLAN.md` what is being built, in what order, and why
-- `db/schema.sql` the planned database tables (not yet applied anywhere)
+- `db/migrations/` the database tables and access rules, as numbered SQL files run in order in the Supabase SQL Editor
 - `AGENTS.md`, `CLAUDE.md` instructions for AI coding sessions working in this repo
