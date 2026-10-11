@@ -39,3 +39,18 @@ language and often by voice.
   has already been run. Rich runs each one by pasting it into the Supabase SQL Editor.
 - Every new table gets row level security and an "own company only" policy, as in
   `001_init.sql`. Test migrations locally (PGlite works) before asking Rich to run one.
+
+## Things this codebase has already learned
+
+- `cacheComponents` is on (see `next.config.ts`). A page that reads the signed-in
+  person must sit behind a Suspense boundary; `src/app/loading.tsx` provides one for
+  every page. Without it the build fails with "uncached or runtime data".
+- `createClient()` in `src/lib/supabase/server.ts` calls `await connection()` first,
+  because the Supabase client reads the clock on start-up. Keep that line.
+- React clears a form's fields after its action runs. Hand back anything the person
+  typed that should stay (see `email` in `src/app/login/actions.ts`).
+- After a navigation the previous page can remain in the HTML, hidden. Browser tests
+  must target visible elements (`:visible`).
+- The cloud workspace cannot reach Supabase. To test sign-in flows, run the built app
+  against a small local stand-in for the Supabase auth and REST endpoints and click
+  through with Playwright.

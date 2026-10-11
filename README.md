@@ -4,13 +4,14 @@ A hosted tool for production companies and reps. It holds every director's spots
 one library, analyzes each spot with an AI model, proposes a reel for a brief with a
 reason for every pick, and learns from what happens after the reel is sent.
 
-Status: project skeleton. No features are built yet. See `docs/PLAN.md` for the
+Status: step 1 of stage 1 is built (sign-in, and a library that lists and adds directors). It has been tested against a stand-in for Supabase, not yet against the real project. See `docs/PLAN.md` for the
 product brief and build order, and `db/migrations/` for the database tables.
 
 ## Running it
 
 ```bash
 npm install
+cp .env.example .env.local   # then fill in the two Supabase values
 npm run dev
 ```
 
